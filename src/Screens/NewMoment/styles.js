@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
 		backgroundColor: 'white',
 		borderTopLeftRadius: 50,
 		borderTopRightRadius: 50,
-		marginTop: -20,
+		marginTop: -50,
 		elevation: 5,
 		paddingBottom: 25,
 	},
@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
 		textAlignVertical: 'top',
 	},
 	imageButton: {
-		height: '50%',
+		height: '60%',
 		overflow: 'hidden',
 		justifyContent: 'center',
 		alignItems: 'center',

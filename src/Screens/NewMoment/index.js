@@ -9,9 +9,23 @@ import {
 import React, { useState } from 'react';
 import { styles } from './styles';
 import * as ImagePicker from 'expo-image-picker';
+import { useDispatch } from 'react-redux';
+import { momentActions } from '../../store/action';
 
 const NewMoment = ({ navigation }) => {
+	const dispatch = useDispatch();
+
 	const [image, setImage] = useState(null);
+	const [name, setName] = useState('');
+
+	const handleNameChange = (text) => {
+		setName(text);
+	};
+
+	const handleSaveMoment = () => {
+		dispatch(momentActions.addMoment(name));
+		navigation.navigate('MomentList');
+	};
 
 	//Función para seleccionar imagen de la galería
 	const pickImage = async () => {
@@ -44,6 +58,8 @@ const NewMoment = ({ navigation }) => {
 				<TextInput
 					placeholder='Nombre de la entrada...'
 					style={styles.inputName}
+					onChangeText={handleNameChange}
+					value={name}
 				/>
 				<ScrollView>
 					<TextInput
@@ -54,12 +70,15 @@ const NewMoment = ({ navigation }) => {
 					/>
 				</ScrollView>
 				<View style={styles.buttonContainer}>
-				<TouchableOpacity style={styles.buttonBack} onPress={goToList}>
-					<Text style={styles.textButtonBack}>VOLVER</Text>
-				</TouchableOpacity>
-				<TouchableOpacity style={styles.buttonSave}>
-					<Text style={styles.textButtonSave}>GUARDAR</Text>
-				</TouchableOpacity>
+					<TouchableOpacity style={styles.buttonBack} onPress={goToList}>
+						<Text style={styles.textButtonBack}>VOLVER</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						style={styles.buttonSave}
+						onPress={handleSaveMoment}
+					>
+						<Text style={styles.textButtonSave}>GUARDAR</Text>
+					</TouchableOpacity>
 				</View>
 			</View>
 		</View>

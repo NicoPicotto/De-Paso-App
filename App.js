@@ -1,13 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, Text } from 'react-native';
 import MainStack from './src/Navigation/MainStack';
-import { styles } from './styles';
+import {Provider} from 'react-redux';
+import store from './src/store';
 
 const App = () => {
 	return (
-		<SafeAreaView style={styles.container}>
+		<Provider store={store}>
 			<MainStack />
-		</SafeAreaView>
+		</Provider>
 	);
 };
 
