@@ -9,7 +9,11 @@ const Stack = createNativeStackNavigator();
 const MainStack = () => {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator>
+			<Stack.Navigator
+				screenOptions={{
+					headerShown: false,
+				}}
+			>
 				<Stack.Screen name='MomentList' component={MomentList} />
 				<Stack.Screen name='NewMoment' component={NewMoment} />
 			</Stack.Navigator>

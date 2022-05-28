@@ -1,13 +1,23 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { styles } from './styles'
+import { View, Text } from 'react-native';
+import React from 'react';
+import { styles } from './styles';
+import CustomHeader from '../../Components/CustomHeader';
 
-const NewMoment = () => {
-  return (
-    <View style={styles.container}>
-      <Text>NewMoment</Text>
-    </View>
-  )
-}
+const NewMoment = ({ navigation }) => {
+	const goToList = () => {
+		navigation.navigate('MomentList');
+	};
 
-export default NewMoment
+	return (
+		<View style={styles.container}>
+			<CustomHeader
+				title='Nueva entrada'
+				buttonTitle='Volver'
+				onPressProp={goToList}
+			/>
+			<Text>NewMoment</Text>
+		</View>
+	);
+};
+
+export default NewMoment;
