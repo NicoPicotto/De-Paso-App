@@ -36,6 +36,8 @@ const MomentList = ({ navigation }) => {
 				data={moments}
 				keyExtractor={(item) => item.id}
 				renderItem={renderItem}
+				horizontal={true}
+				style={styles.flatList}
 			/>
 		</View>
 	);

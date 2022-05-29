@@ -71,12 +71,15 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		marginHorizontal: 30,
+		marginHorizontal: 10,
+		opacity: 0.8,
+		elevation: 5,
 	},
 	touchableLayout: {
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
+		opacity: 0.5,
 	},
 	imageBackground: {
 		flex: 1,
@@ -85,5 +88,13 @@ export const styles = StyleSheet.create({
 		bottom: 0,
 		right: 0,
 		left: 0,
+	},
+	buttonIconsContainer: {
+		backgroundColor: COLORS.secondaryColor,
+		borderRadius: 100,
+		padding: 10,
+		alignItems: 'center',
+		justifyContent: 'center',
+		marginHorizontal: 10,
 	},
 });

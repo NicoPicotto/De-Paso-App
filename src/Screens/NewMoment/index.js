@@ -12,8 +12,10 @@ import * as ImagePicker from 'expo-image-picker';
 import { useDispatch } from 'react-redux';
 import { momentActions } from '../../store/action';
 import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { COLORS } from '../../Constants';
+import { Feather } from '@expo/vector-icons';
 
 const NewMoment = ({ navigation }) => {
 	const dispatch = useDispatch();
@@ -67,7 +69,7 @@ const NewMoment = ({ navigation }) => {
 
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity onPress={pickImage} style={styles.imageButton}>
+			<View style={styles.imageButton}>
 				{image ? (
 					<ImageBackground
 						source={{ uri: image }}
@@ -76,12 +78,32 @@ const NewMoment = ({ navigation }) => {
 					/>
 				) : null}
 				<View style={styles.topBarTouchable}>
-					<TouchableOpacity onPress={goToList}>
-						<Ionicons name='arrow-back' size={28} color='white' />
-					</TouchableOpacity>
-					<TouchableOpacity onPress={openCamera}>
-						<FontAwesome name='camera' size={24} color='white' />
-					</TouchableOpacity>
+					<View>
+						<TouchableOpacity
+							onPress={goToList}
+							style={styles.buttonIconsContainer}
+						>
+							<Feather name='arrow-left' size={22} color='white' />
+						</TouchableOpacity>
+					</View>
+					<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+						<TouchableOpacity
+							onPress={pickImage}
+							style={styles.buttonIconsContainer}
+						>
+							<MaterialCommunityIcons
+								name='folder-image'
+								size={24}
+								color='white'
+							/>
+						</TouchableOpacity>
+						<TouchableOpacity
+							onPress={openCamera}
+							style={styles.buttonIconsContainer}
+						>
+							<FontAwesome name='camera' size={20} color='white' />
+						</TouchableOpacity>
+					</View>
 				</View>
 				<View style={styles.touchableLayout}>
 					{image ? null : (
@@ -92,7 +114,7 @@ const NewMoment = ({ navigation }) => {
 						/>
 					)}
 				</View>
-			</TouchableOpacity>
+			</View>
 
 			<View style={styles.inputContainer}>
 				<TextInput
@@ -107,6 +129,7 @@ const NewMoment = ({ navigation }) => {
 						multiline={true}
 						numberOfLines={10}
 						placeholder='Texto de la entrada...'
+						returnKeyType='go'
 					/>
 				</ScrollView>
 				<View style={styles.buttonContainer}>
