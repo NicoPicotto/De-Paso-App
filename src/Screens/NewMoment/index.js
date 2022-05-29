@@ -11,7 +11,6 @@ import { styles } from './styles';
 import * as ImagePicker from 'expo-image-picker';
 import { useDispatch } from 'react-redux';
 import { momentActions } from '../../store/action';
-import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { COLORS } from '../../Constants';
