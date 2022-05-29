@@ -2,10 +2,9 @@ import {
 	View,
 	Text,
 	TouchableOpacity,
-	Image,
 	TextInput,
 	ScrollView,
-	ImageBackground
+	ImageBackground,
 } from 'react-native';
 import React, { useState } from 'react';
 import { styles } from './styles';
@@ -26,8 +25,9 @@ const NewMoment = ({ navigation }) => {
 		setName(text);
 	};
 
+	//Función para guardar
 	const handleSaveMoment = () => {
-		dispatch(momentActions.addMoment(name));
+		dispatch(momentActions.addMoment(name, image));
 		navigation.navigate('MomentList');
 	};
 
@@ -44,35 +44,47 @@ const NewMoment = ({ navigation }) => {
 		}
 	};
 
+	//Función para usar la cámara
+	const openCamera = async () => {
+		const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
+
+		if (permissionResult.granted === false) {
+			alert('Sin acceso a la cámara!');
+			return;
+		}
+
+		const result = await ImagePicker.launchCameraAsync();
+
+		if (!result.cancelled) {
+			setImage(result.uri);
+		}
+	};
+
+	//Función para volver a la lista
 	const goToList = () => {
 		navigation.navigate('MomentList');
 	};
 
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity onPress={pickImage} style={styles.imageButton}
-			>
-				{image ? <ImageBackground source={{ uri: image }} resizeMode="cover" style={styles.imageBackground}/> : null}
+			<TouchableOpacity onPress={pickImage} style={styles.imageButton}>
+				{image ? (
+					<ImageBackground
+						source={{ uri: image }}
+						resizeMode='cover'
+						style={styles.imageBackground}
+					/>
+				) : null}
 				<View style={styles.topBarTouchable}>
 					<TouchableOpacity onPress={goToList}>
-						<Ionicons
-							name='arrow-back'
-							size={28}
-							color="white"
-						/>
+						<Ionicons name='arrow-back' size={28} color='white' />
 					</TouchableOpacity>
-					<TouchableOpacity>
-						<FontAwesome
-							name='camera'
-							size={24}
-							color="white"
-						/>
+					<TouchableOpacity onPress={openCamera}>
+						<FontAwesome name='camera' size={24} color='white' />
 					</TouchableOpacity>
 				</View>
 				<View style={styles.touchableLayout}>
-					{image ? (
-						null
-					) : (
+					{image ? null : (
 						<FontAwesome
 							name='picture-o'
 							size={35}
