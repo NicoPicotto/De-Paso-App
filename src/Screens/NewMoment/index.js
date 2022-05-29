@@ -5,12 +5,16 @@ import {
 	Image,
 	TextInput,
 	ScrollView,
+	ImageBackground
 } from 'react-native';
 import React, { useState } from 'react';
 import { styles } from './styles';
 import * as ImagePicker from 'expo-image-picker';
 import { useDispatch } from 'react-redux';
 import { momentActions } from '../../store/action';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import { COLORS } from '../../Constants';
 
 const NewMoment = ({ navigation }) => {
 	const dispatch = useDispatch();
@@ -46,12 +50,36 @@ const NewMoment = ({ navigation }) => {
 
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity onPress={pickImage} style={styles.imageButton}>
-				{image ? (
-					<Image source={{ uri: image }} style={styles.image} />
-				) : (
-					<Text>Seleccionar Imagen</Text>
-				)}
+			<TouchableOpacity onPress={pickImage} style={styles.imageButton}
+			>
+				{image ? <ImageBackground source={{ uri: image }} resizeMode="cover" style={styles.imageBackground}/> : null}
+				<View style={styles.topBarTouchable}>
+					<TouchableOpacity onPress={goToList}>
+						<Ionicons
+							name='arrow-back'
+							size={28}
+							color="white"
+						/>
+					</TouchableOpacity>
+					<TouchableOpacity>
+						<FontAwesome
+							name='camera'
+							size={24}
+							color="white"
+						/>
+					</TouchableOpacity>
+				</View>
+				<View style={styles.touchableLayout}>
+					{image ? (
+						null
+					) : (
+						<FontAwesome
+							name='picture-o'
+							size={35}
+							color={COLORS.secondaryColor}
+						/>
+					)}
+				</View>
 			</TouchableOpacity>
 
 			<View style={styles.inputContainer}>
@@ -70,9 +98,6 @@ const NewMoment = ({ navigation }) => {
 					/>
 				</ScrollView>
 				<View style={styles.buttonContainer}>
-					<TouchableOpacity style={styles.buttonBack} onPress={goToList}>
-						<Text style={styles.textButtonBack}>VOLVER</Text>
-					</TouchableOpacity>
 					<TouchableOpacity
 						style={styles.buttonSave}
 						onPress={handleSaveMoment}

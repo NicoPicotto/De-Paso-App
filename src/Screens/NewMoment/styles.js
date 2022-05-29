@@ -35,8 +35,6 @@ export const styles = StyleSheet.create({
 	imageButton: {
 		height: '60%',
 		overflow: 'hidden',
-		justifyContent: 'center',
-		alignItems: 'center',
 		backgroundColor: COLORS.terciartyColor,
 	},
 	image: {
@@ -54,17 +52,38 @@ export const styles = StyleSheet.create({
 		backgroundColor: 'red',
 	},
 	textButtonBack: {
-		color: "white",
-		fontWeight: "bold",
+		color: 'white',
+		fontWeight: 'bold',
 	},
 	buttonSave: {
 		paddingVertical: 10,
 		paddingHorizontal: 30,
 		borderRadius: 50,
-		backgroundColor: 'green',
+		backgroundColor: COLORS.primaryColor,
 	},
 	textButtonSave: {
-		color: "white",
-		fontWeight: "bold",
+		color: 'white',
+		fontWeight: 'bold',
+	},
+	topBarTouchable: {
+		height: '10%',
+		marginTop: 30,
+		alignItems: 'center',
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		marginHorizontal: 30,
+	},
+	touchableLayout: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	imageBackground: {
+		flex: 1,
+		position: 'absolute',
+		top: 0,
+		bottom: 0,
+		right: 0,
+		left: 0,
 	},
 });
