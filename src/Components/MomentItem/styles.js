@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
 		height: '90%',
 		borderRadius: 20,
 		alignItems: 'center',
-		elevation: 4,
+		elevation: 2,
 		width: 350,
 	},
 	image: {

@@ -1,5 +1,5 @@
 export default {
-	primaryColor: '#548DBF',
-	secondaryColor: '#82C9D9',
-	terciartyColor: '#CDEDF5',
+	primaryColor: '#442c2e',
+	secondaryColor: '#fedbd0',
+	terciartyColor: '#feeae6',
 };
