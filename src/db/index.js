@@ -45,3 +45,45 @@ export const insertMoments = (
 	});
 	return promise;
 };
+
+export const fetchMoments = () => {
+	const promise = new Promise((resolve, reject) => {
+		db.transaction((tx) => {
+			tx.executeSql(
+				'SELECT * FROM moments',
+				[],
+				(_, result) => {
+					let data = [];
+					var len = result.rows.length;
+					for (let i = 0; i < len; i++) {
+						let row = result.rows.item(i);
+						data.push(row);
+					}
+					resolve(data);
+				},
+				(_, err) => {
+					reject(err);
+				}
+			);
+		});
+	});
+	return promise;
+};
+
+export const deleteMoments = (name) => {
+	const promise = new Promise((resolve, reject) => {
+		db.transaction((tx) => {
+			tx.executeSql(
+				'DELETE FROM moments WHERE name=?',
+				[name],
+				(_, result) => {
+					resolve(result);
+				},
+				(_, err) => {
+					reject(err);
+				}
+			);
+		});
+	});
+	return promise;
+};

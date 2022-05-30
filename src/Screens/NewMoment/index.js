@@ -21,14 +21,32 @@ const NewMoment = ({ navigation }) => {
 
 	const [image, setImage] = useState(null);
 	const [name, setName] = useState('');
+	const [entry, setEntry] = useState('');
 
 	const handleNameChange = (text) => {
 		setName(text);
 	};
 
+	const handleEntryChange = (text) => {
+		setEntry(text);
+	};
+
+	const d = new Date();
+	let date = d.toLocaleString();
+
 	//Función para guardar
 	const handleSaveMoment = () => {
-		dispatch(momentActions.addMoment(name, image));
+		dispatch(
+			momentActions.addMoment(
+				name,
+				image,
+				entry,
+				date,
+				'Soy un address',
+				10.5,
+				11.5
+			)
+		);
 		navigation.navigate('MomentList');
 	};
 
@@ -129,6 +147,8 @@ const NewMoment = ({ navigation }) => {
 						numberOfLines={10}
 						placeholder='Texto de la entrada...'
 						returnKeyType='go'
+						value={entry}
+						onChangeText={handleEntryChange}
 					/>
 				</ScrollView>
 				<View style={styles.buttonContainer}>

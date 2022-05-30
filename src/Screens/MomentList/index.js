@@ -20,6 +20,8 @@ const MomentList = ({ navigation }) => {
 		<MomentItem
 			name={item.name}
 			address='Calle falsa 123'
+			entry={item.entry}
+			date={item.date}
 			image={item.image}
 			onSelect={onSelectDetail}
 		/>
