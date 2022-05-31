@@ -1,7 +1,7 @@
 import Moment from '../../Models';
 import { MOMENTS } from '../types';
 
-const { ADD_MOMENT } = MOMENTS;
+const { ADD_MOMENT, LOAD_MOMENT, DELETE_MOMENT } = MOMENTS;
 
 const initialState = {
 	moments: [],
@@ -23,6 +23,31 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				moments: state.moments.concat(newMoment),
+			};
+		case LOAD_MOMENT:
+			return {
+				...state,
+				moments: action.moment.map(
+					(item) =>
+						new Moment(
+							item.id,
+							item.name,
+							item.image,
+							item.entry,
+							item.date,
+							item.address,
+							item.latitude,
+							item.longitude
+						)
+				),
+			};
+		case DELETE_MOMENT:
+			const deleteMoment = [...state.moments].filter(
+				(item) => item.name !== action.name
+			);
+			return {
+				...state,
+				moments: deleteMoment,
 			};
 		default:
 			return state;

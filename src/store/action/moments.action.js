@@ -1,8 +1,8 @@
 import { MOMENTS } from '../types';
 import * as FileSystem from 'expo-file-system';
-import { insertMoments } from '../../db';
+import { insertMoments, fetchMoments, deleteMoments } from '../../db';
 
-const { ADD_MOMENT } = MOMENTS;
+const {ADD_MOMENT, LOAD_MOMENT, DELETE_MOMENT} = MOMENTS;
 
 export default {
 	addMoment: (name, image, entry, date, address, latitude, longitude) => {
@@ -38,6 +38,34 @@ export default {
 					},
 				});
 			} catch (err) {
+				console.log(err);
+			}
+		};
+	},
+
+	loadMoment: () => {
+		return async (dispatch) => {
+			try {
+				const result = await fetchMoments();
+				dispatch({
+					type: LOAD_MOMENT,
+					moment: result,
+				});
+			} catch (err) {
+				console.log(err);
+			}
+		};
+	},
+
+	deleteMoment: (name) => {
+		return async (dispatch) => {
+			try {
+				deleteMoments(name);
+				dispatch({
+					type: DELETE_MOMENT,
+					name,
+				});
+			} catch (error) {
 				console.log(err);
 			}
 		};

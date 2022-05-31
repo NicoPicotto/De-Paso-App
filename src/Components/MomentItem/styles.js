@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'white',
 		overflow: 'hidden',
 		marginHorizontal: 10,
 		marginTop: 20,
@@ -27,7 +26,8 @@ export const styles = StyleSheet.create({
 	},
 	name: {
 		color: 'white',
-		fontSize: 15,
+		fontSize: 25,
+		fontWeight: 'bold',
 		textShadowOffset: { width: 2, height: 2 },
 		textShadowRadius: 10,
 		lineHeight: 25,
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
 	},
 	date: {
 		color: 'white',
-		fontSize: 14,
+		fontSize: 16,
 		lineHeight: 18,
 		textShadowOffset: { width: 1, height: 1 },
 		textShadowRadius: 10,

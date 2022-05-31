@@ -21,9 +21,7 @@ const MomentItem = ({
 			>
 				<View style={styles.details}>
 					<Text style={styles.name}>{name}</Text>
-					<Text style={styles.name}>{date}</Text>
-					<Text style={styles.name}>{date}</Text>
-					<Text style={styles.name}>{entry}</Text>
+					<Text style={styles.date}>{date}</Text>
 				</View>
 			</ImageBackground>
 		</TouchableOpacity>

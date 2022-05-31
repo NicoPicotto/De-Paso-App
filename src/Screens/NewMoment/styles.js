@@ -90,9 +90,9 @@ export const styles = StyleSheet.create({
 		left: 0,
 	},
 	buttonIconsContainer: {
-		backgroundColor: COLORS.secondaryColor,
+		backgroundColor: COLORS.terciartyColor,
 		borderRadius: 100,
-		padding: 10,
+		padding: 8,
 		alignItems: 'center',
 		justifyContent: 'center',
 		marginHorizontal: 10,

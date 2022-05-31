@@ -100,7 +100,7 @@ const NewMoment = ({ navigation }) => {
 							onPress={goToList}
 							style={styles.buttonIconsContainer}
 						>
-							<Feather name='arrow-left' size={22} color='white' />
+							<Feather name='arrow-left' size={22} color={COLORS.primaryColor} />
 						</TouchableOpacity>
 					</View>
 					<View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -111,14 +111,14 @@ const NewMoment = ({ navigation }) => {
 							<MaterialCommunityIcons
 								name='folder-image'
 								size={24}
-								color='white'
+								color={COLORS.primaryColor}
 							/>
 						</TouchableOpacity>
 						<TouchableOpacity
 							onPress={openCamera}
 							style={styles.buttonIconsContainer}
 						>
-							<FontAwesome name='camera' size={20} color='white' />
+							<FontAwesome name='camera' size={20} color={COLORS.primaryColor} />
 						</TouchableOpacity>
 					</View>
 				</View>
