@@ -4,10 +4,11 @@ import { COLORS } from '../../Constants';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		paddingVertical: 20,
+		paddingTop: 50,
+		paddingBottom: 20,
 		backgroundColor: COLORS.terciartyColor,
 	},
 	flatList: {
-		paddingHorizontal: 15,
+		marginHorizontal: 10,
 	},
 });

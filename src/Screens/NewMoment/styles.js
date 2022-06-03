@@ -66,8 +66,7 @@ export const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	topBarTouchable: {
-		height: '10%',
-		marginTop: 30,
+		marginTop: 60,
 		alignItems: 'center',
 		flexDirection: 'row',
 		justifyContent: 'space-between',

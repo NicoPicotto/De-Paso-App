@@ -5,6 +5,7 @@ import {
 	TextInput,
 	ScrollView,
 	ImageBackground,
+	KeyboardAvoidingView
 } from 'react-native';
 import React, { useState } from 'react';
 import { styles } from './styles';
@@ -146,7 +147,6 @@ const NewMoment = ({ navigation }) => {
 						multiline={true}
 						numberOfLines={10}
 						placeholder='Texto de la entrada...'
-						returnKeyType='go'
 						value={entry}
 						onChangeText={handleEntryChange}
 					/>
