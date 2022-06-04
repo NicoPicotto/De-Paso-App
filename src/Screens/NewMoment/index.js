@@ -7,6 +7,11 @@ import {
 	ImageBackground,
 	Modal,
 	Pressable,
+	ActivityIndicator,
+	Alert,
+	KeyboardAvoidingView,
+	TouchableWithoutFeedback,
+	Keyboard,
 } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { styles } from './styles';
@@ -66,10 +71,14 @@ const NewMoment = ({ navigation }) => {
 
 	//Obteniendo locación
 	const pickLocation = () => {
-		let direcCompleta = city + ', ' + region + ', ' + country;
-		console.log('DirecCompleta: ', direcCompleta);
 		setModalVisible(true);
-		setAddress(direcCompleta);
+	};
+
+	//Cierra modal
+	const closeModal = () => {
+		let direcCompleta = city + ', ' + region + ', ' + country;
+		city ? setAddress(direcCompleta) : <Text>No obtenida</Text>;
+		setModalVisible(false);
 	};
 
 	const handleNameChange = (text) => {
@@ -94,10 +103,17 @@ const NewMoment = ({ navigation }) => {
 
 	//Función para guardar
 	const handleSaveMoment = () => {
-		dispatch(
-			momentActions.addMoment(name, image, entry, date, address, 10.5, 11.5)
-		);
-		navigation.navigate('MomentList');
+		if (
+			(name !== '') &
+			(entry !== '') &
+			(address !== null) &
+			(image !== null)
+		) {
+			dispatch(momentActions.addMoment(name, image, entry, date, address));
+			navigation.navigate('MomentList');
+		} else {
+			Alert.alert('Debes completar todos los campos.');
+		}
 	};
 
 	//Función para seleccionar imagen de la galería
@@ -105,7 +121,6 @@ const NewMoment = ({ navigation }) => {
 		let result = await ImagePicker.launchImageLibraryAsync({
 			mediaTypes: ImagePicker.MediaTypeOptions.All,
 			allowsEditing: true,
-			aspect: [4, 3],
 			quality: 1,
 		});
 		if (!result.cancelled) {
@@ -135,151 +150,172 @@ const NewMoment = ({ navigation }) => {
 	};
 
 	return (
-		<View style={styles.container}>
-			<View style={styles.imageButton}>
-				{image ? (
-					<ImageBackground
-						source={{ uri: image }}
-						resizeMode='cover'
-						style={styles.imageBackground}
-					/>
-				) : null}
-				<View style={styles.topBarTouchable}>
-					<View>
-						<TouchableOpacity
-							onPress={goToList}
-							style={styles.buttonIconsContainer}
-						>
-							<Feather
-								name='arrow-left'
-								size={22}
-								color={COLORS.primaryColor}
-							/>
-						</TouchableOpacity>
-					</View>
-					<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-						<TouchableOpacity
-							onPress={pickLocation}
-							style={styles.buttonIconsContainer}
-						>
-							<MaterialIcons
-								name='location-on'
-								size={24}
-								color={COLORS.primaryColor}
-							/>
-						</TouchableOpacity>
-						<TouchableOpacity
-							onPress={pickImage}
-							style={styles.buttonIconsContainer}
-						>
-							<MaterialCommunityIcons
-								name='folder-image'
-								size={24}
-								color={COLORS.primaryColor}
-							/>
-						</TouchableOpacity>
-						<TouchableOpacity
-							onPress={openCamera}
-							style={styles.buttonIconsContainer}
-						>
-							<FontAwesome
-								name='camera'
-								size={20}
-								color={COLORS.primaryColor}
-							/>
-						</TouchableOpacity>
-					</View>
-				</View>
-				<View style={styles.touchableLayout}>
-					{image ? null : (
-						<FontAwesome
-							name='picture-o'
-							size={35}
-							color={COLORS.secondaryColor}
+		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+			<KeyboardAvoidingView behavior='height' style={styles.container}>
+				<View style={styles.imageButton}>
+					{image ? (
+						<ImageBackground
+							source={{ uri: image }}
+							resizeMode='cover'
+							style={styles.imageBackground}
 						/>
-					)}
-				</View>
-			</View>
-
-			<View style={styles.inputContainer}>
-				<TextInput
-					placeholder='Nombre de la entrada...'
-					style={styles.inputName}
-					onChangeText={handleNameChange}
-					value={name}
-				/>
-				<ScrollView>
-					<TextInput
-						style={styles.inputEntry}
-						multiline={true}
-						numberOfLines={10}
-						placeholder='Texto de la entrada...'
-						value={entry}
-						onChangeText={handleEntryChange}
-					/>
-				</ScrollView>
-				<View style={styles.buttonContainer}>
-					<TouchableOpacity
-						style={styles.buttonSave}
-						onPress={handleSaveMoment}
-					>
-						<Text style={styles.textButtonSave}>GUARDAR</Text>
-					</TouchableOpacity>
-				</View>
-			</View>
-			<Modal
-				animationType='fade'
-				transparent={true}
-				visible={modalVisible}
-				onRequestClose={() => {
-					setModalVisible(!modalVisible);
-				}}
-			>
-				<View style={styles.centeredView}>
-					<View style={styles.modalView}>
-						<Text style={styles.textModal}>
-							{' '}
-							<MaterialIcons
-								name='location-on'
-								size={15}
-								color={COLORS.primaryColor}
-							/>
-							Ubicación obtenida: {city}, {region}, {country}
-						</Text>
-						<TextInput
-							placeholder="¿Querés cambiarla? Escribí aquí una nueva"
-							onChangeText={handleLocationChange}
-							value={inputLocation}
-							style={styles.modalInput}
-						/>
-						{inputLocation ? (
-							<Text>
-								<MaterialIcons
-									name='location-on'
-									size={15}
+					) : null}
+					<View style={styles.topBarTouchable}>
+						<View>
+							<TouchableOpacity
+								onPress={goToList}
+								style={styles.buttonIconsContainer}
+							>
+								<Feather
+									name='arrow-left'
+									size={22}
 									color={COLORS.primaryColor}
 								/>
-								Nueva ubicación: {inputLocation}
-							</Text>
-						) : null}
-						<View style={styles.pressableContainer}>
-							<Pressable
-								style={[styles.button, styles.buttonClose]}
-								onPress={() => setModalVisible(!modalVisible)}
+							</TouchableOpacity>
+						</View>
+						<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+							<TouchableOpacity
+								onPress={pickLocation}
+								style={styles.buttonIconsContainer}
 							>
-								<Text style={styles.textStyle}>Conservar actual</Text>
-							</Pressable>
-							<Pressable
-								style={[styles.button, styles.buttonNew]}
-								onPress={handleNewLocation}
+								<MaterialIcons
+									name='location-on'
+									size={24}
+									color={COLORS.primaryColor}
+								/>
+							</TouchableOpacity>
+							<TouchableOpacity
+								onPress={pickImage}
+								style={styles.buttonIconsContainer}
 							>
-								<Text style={styles.textStyle}>Guardar nueva</Text>
-							</Pressable>
+								<MaterialCommunityIcons
+									name='folder-image'
+									size={24}
+									color={COLORS.primaryColor}
+								/>
+							</TouchableOpacity>
+							<TouchableOpacity
+								onPress={openCamera}
+								style={styles.buttonIconsContainer}
+							>
+								<FontAwesome
+									name='camera'
+									size={20}
+									color={COLORS.primaryColor}
+								/>
+							</TouchableOpacity>
 						</View>
 					</View>
+					<View style={styles.touchableLayout}>
+						{image ? null : (
+							<FontAwesome
+								name='picture-o'
+								size={35}
+								color={COLORS.secondaryColor}
+							/>
+						)}
+					</View>
 				</View>
-			</Modal>
-		</View>
+
+				<View style={styles.inputContainer}>
+					<TextInput
+						placeholder='Nombre de la entrada...'
+						style={styles.inputName}
+						onChangeText={handleNameChange}
+						value={name}
+					/>
+					<ScrollView>
+						<TextInput
+							style={styles.inputEntry}
+							multiline={true}
+							numberOfLines={10}
+							placeholder='Texto de la entrada...'
+							value={entry}
+							onChangeText={handleEntryChange}
+							showSoftInputOnFocus={true}
+						/>
+					</ScrollView>
+					<View style={styles.buttonContainer}>
+						<TouchableOpacity
+							style={styles.buttonSave}
+							onPress={handleSaveMoment}
+						>
+							<Text style={styles.textButtonSave}>GUARDAR</Text>
+						</TouchableOpacity>
+					</View>
+				</View>
+				<Modal
+					animationType='fade'
+					transparent={true}
+					visible={modalVisible}
+					onRequestClose={() => {
+						setModalVisible(!modalVisible);
+					}}
+				>
+					<View style={styles.centeredView}>
+						<View style={styles.modalView}>
+							{city ? (
+								<Text style={styles.textModal}>
+									{' '}
+									<MaterialIcons
+										name='location-on'
+										size={15}
+										color={COLORS.primaryColor}
+									/>
+									Ubicación obtenida: {city}, {region}, {country}
+								</Text>
+							) : (
+								<Text style={styles.textModal}>
+									{' '}
+									<MaterialIcons
+										name='location-on'
+										size={15}
+										color={COLORS.primaryColor}
+									/>
+									Obteniendo ubicación:{' '}
+									<ActivityIndicator
+										size='small'
+										color={COLORS.secondaryColor}
+									/>
+								</Text>
+							)}
+
+							<TextInput
+								placeholder='¿Querés cambiarla? Escribí aquí una nueva'
+								onChangeText={handleLocationChange}
+								value={inputLocation ? inputLocation : null}
+								style={styles.modalInput}
+								placeholderTextColor={COLORS.secondaryColor}
+							/>
+							{inputLocation ? (
+								<Text style={styles.textModal}>
+									<MaterialIcons
+										name='location-on'
+										size={15}
+										color={COLORS.primaryColor}
+									/>
+									Nueva ubicación: {inputLocation}
+								</Text>
+							) : null}
+							<View style={styles.pressableContainer}>
+								<Pressable
+									style={[styles.button, styles.buttonClose]}
+									onPress={closeModal}
+								>
+									<Text style={styles.textStyle}>Conservar actual</Text>
+								</Pressable>
+								<Pressable
+									style={[styles.button, styles.buttonNew]}
+									onPress={handleNewLocation}
+								>
+									<Text style={styles.textStyle}>Guardar nueva</Text>
+								</Pressable>
+							</View>
+						</View>
+					</View>
+				</Modal>
+			</KeyboardAvoidingView>
+		</TouchableWithoutFeedback>
 	);
 };
 

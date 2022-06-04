@@ -5,6 +5,8 @@ import {
 	ScrollView,
 	ImageBackground,
 	Alert,
+	Share,
+	Platform,
 } from 'react-native';
 import React from 'react';
 import { styles } from './styles';
@@ -42,6 +44,28 @@ const MomentDetail = ({ route, navigation }) => {
 		);
 	};
 
+	//Función para compartir
+	const onShare = async () => {
+		try {
+			const result = await Share.share({
+				message: name + ' - ' + entry,
+				url: image,
+				title: name,
+			});
+			if (result.action === Share.sharedAction) {
+				if (result.activityType) {
+					// shared with activity type of result.activityType
+				} else {
+					// shared
+				}
+			} else if (result.action === Share.dismissedAction) {
+				// dismissed
+			}
+		} catch (error) {
+			alert(error.message);
+		}
+	};
+
 	//Función para volver a la lista
 	const goToList = () => {
 		navigation.navigate('MomentList');
@@ -75,7 +99,7 @@ const MomentDetail = ({ route, navigation }) => {
 						>
 							<FontAwesome name='trash' size={22} color='white' />
 						</TouchableOpacity>
-						<TouchableOpacity style={styles.buttonSave}>
+						<TouchableOpacity style={styles.buttonSave} onPress={onShare}>
 							<Ionicons
 								name='share-social'
 								size={22}

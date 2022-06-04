@@ -17,8 +17,6 @@ export default (state = initialState, action) => {
 				action.moment.entry,
 				action.moment.date,
 				action.moment.address,
-				action.moment.latitude,
-				action.moment.longitude
 			);
 			return {
 				...state,
@@ -36,8 +34,6 @@ export default (state = initialState, action) => {
 							item.entry,
 							item.date,
 							item.address,
-							item.latitude,
-							item.longitude
 						)
 				),
 			};

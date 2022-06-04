@@ -24,6 +24,7 @@ export const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 		color: COLORS.primaryColor,
 		marginBottom: 5,
+		textAlign: 'center',
 	},
 	inputEntry: {
 		fontSize: 15,
@@ -108,7 +109,15 @@ export const styles = StyleSheet.create({
 		borderRadius: 20,
 		padding: 25,
 		alignItems: 'center',
-		elevation: 5,
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 0,
+			height: 1,
+		},
+		shadowOpacity: 0.2,
+		shadowRadius: 1.41,
+
+		elevation: 2,
 		justifyContent: 'space-between',
 	},
 	button: {
@@ -125,14 +134,14 @@ export const styles = StyleSheet.create({
 	textModal: {
 		textAlign: 'center',
 		fontSize: 15,
-		color: COLORS.primaryColor, 
-		},
+		color: COLORS.primaryColor,
+	},
 	modalInput: {
 		borderBottomColor: COLORS.secondaryColor,
 		borderBottomWidth: 1,
 		padding: 5,
 		fontStyle: 'italic',
-		color: COLORS.primaryColor,
+		color: COLORS.secondaryColor,
 	},
 	textStyle: {
 		color: 'white',

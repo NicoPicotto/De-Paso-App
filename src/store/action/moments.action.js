@@ -5,7 +5,7 @@ import { insertMoments, fetchMoments, deleteMoments } from '../../db';
 const {ADD_MOMENT, LOAD_MOMENT, DELETE_MOMENT} = MOMENTS;
 
 export default {
-	addMoment: (name, image, entry, date, address, latitude, longitude) => {
+	addMoment: (name, image, entry, date, address) => {
 		return async (dispatch) => {
 			const fileName = image.split('/').pop();
 			const Path = FileSystem.documentDirectory + fileName;
@@ -21,8 +21,6 @@ export default {
 					entry,
 					date,
 					address,
-					latitude,
-					longitude
 				);
 				dispatch({
 					type: ADD_MOMENT,
@@ -33,8 +31,6 @@ export default {
 						entry,
 						date,
 						address,
-						latitude,
-						longitude,
 					},
 				});
 			} catch (err) {

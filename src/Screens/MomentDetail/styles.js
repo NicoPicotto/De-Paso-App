@@ -56,6 +56,7 @@ export const styles = StyleSheet.create({
 
 	imageButton: {
 		height: '60%',
+		paddingTop: 30,
 		overflow: 'hidden',
 		backgroundColor: COLORS.terciartyColor,
 	},

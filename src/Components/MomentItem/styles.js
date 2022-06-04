@@ -1,15 +1,23 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		overflow: 'hidden',
 		marginHorizontal: 10,
-		marginTop: 20,
+		marginTop: 30,
 		height: '90%',
 		borderRadius: 20,
 		alignItems: 'center',
-		elevation: 2,
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 0,
+			height: 1,
+		},
+		shadowOpacity: 0.22,
+		shadowRadius: 2.22,
+
+		elevation: 3,
 		width: 350,
 	},
 	image: {

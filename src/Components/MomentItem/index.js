@@ -4,16 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { COLORS } from '../../Constants';
 import { styles } from './styles';
 
-const MomentItem = ({
-	name,
-	image,
-	address,
-	date,
-	entry,
-	latitude,
-	longitude,
-	onSelect,
-}) => {
+const MomentItem = ({ name, image, address, date, entry, onSelect }) => {
 	return (
 		<TouchableOpacity onPress={() => onSelect()} style={styles.container}>
 			<ImageBackground
