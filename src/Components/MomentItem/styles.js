@@ -32,11 +32,13 @@ export const styles = StyleSheet.create({
 		textShadowRadius: 10,
 		lineHeight: 25,
 		textShadowColor: '#2B2B2B',
+		marginBottom: 5,
 	},
 	date: {
 		color: 'white',
 		fontSize: 16,
 		lineHeight: 18,
+		marginBottom: 5,
 		textShadowOffset: { width: 1, height: 1 },
 		textShadowRadius: 10,
 		textShadowColor: '#2B2B2B',

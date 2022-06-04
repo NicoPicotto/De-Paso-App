@@ -64,7 +64,7 @@ const MomentDetail = ({ route, navigation }) => {
 							<Feather
 								name='arrow-left'
 								size={22}
-								color={COLORS.primaryColor}
+								color={COLORS.terciartyColor}
 							/>
 						</TouchableOpacity>
 					</View>
@@ -75,6 +75,13 @@ const MomentDetail = ({ route, navigation }) => {
 						>
 							<FontAwesome name='trash' size={22} color='white' />
 						</TouchableOpacity>
+						<TouchableOpacity style={styles.buttonSave}>
+							<Ionicons
+								name='share-social'
+								size={22}
+								color={COLORS.terciartyColor}
+							/>
+						</TouchableOpacity>
 					</View>
 				</View>
 			</View>
@@ -82,23 +89,27 @@ const MomentDetail = ({ route, navigation }) => {
 				<View style={styles.nameContainer}>
 					<Text style={styles.name}>{name}</Text>
 				</View>
-				<View style={styles.dateContainer}>
-					<MaterialIcons name='date-range' size={20} color={COLORS.primaryColor} />
-					<Text style={styles.date}>{date}</Text>
+				<View style={styles.dataContainer}>
+					<View style={styles.dateContainer}>
+						<MaterialIcons
+							name='date-range'
+							size={20}
+							color={COLORS.primaryColor}
+						/>
+						<Text style={styles.date}>{date}</Text>
+					</View>
+					<View style={styles.dateContainer}>
+						<MaterialIcons
+							name='location-on'
+							size={20}
+							color={COLORS.primaryColor}
+						/>
+						<Text style={styles.date}>{address}</Text>
+					</View>
 				</View>
 				<ScrollView style={styles.entryContainer}>
 					<Text style={styles.entry}>{entry}</Text>
 				</ScrollView>
-				<View style={styles.buttonContainer}>
-					<TouchableOpacity style={styles.buttonSave}>
-						<Text style={styles.textButtonSave}>COMPARTIR </Text>
-						<Ionicons
-							name='share-social'
-							size={22}
-							color={COLORS.terciartyColor}
-						/>
-					</TouchableOpacity>
-				</View>
 			</View>
 		</View>
 	);

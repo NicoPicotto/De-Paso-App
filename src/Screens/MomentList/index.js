@@ -32,7 +32,7 @@ const MomentList = ({ navigation }) => {
 	const renderItem = ({ item }) => (
 		<MomentItem
 			name={item.name}
-			address='Calle falsa 123'
+			address={item.address}
 			entry={item.entry}
 			date={item.date}
 			image={item.image}

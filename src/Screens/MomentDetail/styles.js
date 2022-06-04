@@ -7,14 +7,14 @@ export const styles = StyleSheet.create({
 		backgroundColor: COLORS.terciartyColor,
 	},
 	textContainer: {
-		padding: 10,
+		paddingHorizontal: 10,
+		paddingTop: 7,
 		flex: 1,
 		backgroundColor: 'white',
 		borderTopLeftRadius: 50,
 		borderTopRightRadius: 50,
 		marginTop: -50,
 		elevation: 5,
-		paddingBottom: 25,
 	},
 	nameContainer: {
 		paddingVertical: 5,
@@ -30,10 +30,13 @@ export const styles = StyleSheet.create({
 		color: COLORS.primaryColor,
 	},
 	dateContainer: {
-		padding: 10,
 		alignItems: 'center',
 		justifyContent: 'center',
 		flexDirection: 'row',
+		marginBottom: 5,
+	},
+	dataContainer: {
+		padding: 10,
 		borderBottomColor: COLORS.secondaryColor,
 		borderBottomWidth: 1,
 	},
@@ -75,17 +78,13 @@ export const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	buttonSave: {
+		backgroundColor: COLORS.secondaryColor,
+		borderRadius: 100,
+		paddingHorizontal: 10,
 		paddingVertical: 10,
-		paddingHorizontal: 20,
-		borderRadius: 50,
 		alignItems: 'center',
-		justifyContent: 'space-evenly',
-		flexDirection: 'row',
-		backgroundColor: COLORS.primaryColor,
-	},
-	textButtonSave: {
-		color: 'white',
-		fontWeight: 'bold',
+		justifyContent: 'center',
+		marginHorizontal: 10,
 	},
 	topBarTouchable: {
 		height: '10%',
@@ -112,7 +111,7 @@ export const styles = StyleSheet.create({
 		left: 0,
 	},
 	buttonBackContainer: {
-		backgroundColor: COLORS.terciartyColor,
+		backgroundColor: COLORS.secondaryColor,
 		borderRadius: 100,
 		padding: 8,
 		alignItems: 'center',

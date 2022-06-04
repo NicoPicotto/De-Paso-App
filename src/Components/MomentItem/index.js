@@ -1,5 +1,7 @@
 import { View, Text, ImageBackground, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { MaterialIcons } from '@expo/vector-icons';
+import { COLORS } from '../../Constants';
 import { styles } from './styles';
 
 const MomentItem = ({
@@ -21,7 +23,13 @@ const MomentItem = ({
 			>
 				<View style={styles.details}>
 					<Text style={styles.name}>{name}</Text>
-					<Text style={styles.date}>{date}</Text>
+					<Text style={styles.date}>
+						<MaterialIcons name='location-on' size={15} color='white' />{' '}
+						{address}
+					</Text>
+					<Text style={styles.date}>
+						<MaterialIcons name='date-range' size={15} color='white' /> {date}
+					</Text>
 				</View>
 			</ImageBackground>
 		</TouchableOpacity>
