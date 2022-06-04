@@ -228,29 +228,29 @@ const NewMoment = ({ navigation }) => {
 				</View>
 			</View>
 			<Modal
-				animationType='slide'
+				animationType='fade'
 				transparent={true}
 				visible={modalVisible}
 				onRequestClose={() => {
-					Alert.alert('Modal has been closed.');
 					setModalVisible(!modalVisible);
 				}}
 			>
 				<View style={styles.centeredView}>
 					<View style={styles.modalView}>
-						<Text>
+						<Text style={styles.textModal}>
 							{' '}
 							<MaterialIcons
 								name='location-on'
 								size={15}
 								color={COLORS.primaryColor}
 							/>
-							Ubicación obtenida:{' '}
+							Ubicación obtenida: {city}, {region}, {country}
 						</Text>
 						<TextInput
-							placeholder={`${city}, ${region}, ${country}`}
+							placeholder="¿Querés cambiarla? Escribí aquí una nueva"
 							onChangeText={handleLocationChange}
 							value={inputLocation}
+							style={styles.modalInput}
 						/>
 						{inputLocation ? (
 							<Text>
@@ -267,13 +267,13 @@ const NewMoment = ({ navigation }) => {
 								style={[styles.button, styles.buttonClose]}
 								onPress={() => setModalVisible(!modalVisible)}
 							>
-								<Text style={styles.textStyle}>Cerrar</Text>
+								<Text style={styles.textStyle}>Conservar actual</Text>
 							</Pressable>
 							<Pressable
-								style={[styles.button, styles.buttonClose]}
+								style={[styles.button, styles.buttonNew]}
 								onPress={handleNewLocation}
 							>
-								<Text style={styles.textStyle}>Guardar nueva ubicación</Text>
+								<Text style={styles.textStyle}>Guardar nueva</Text>
 							</Pressable>
 						</View>
 					</View>

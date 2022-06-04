@@ -102,23 +102,37 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	modalView: {
+		height: '35%',
 		margin: 20,
 		backgroundColor: 'white',
 		borderRadius: 20,
-		padding: 35,
+		padding: 25,
 		alignItems: 'center',
 		elevation: 5,
+		justifyContent: 'space-between',
 	},
 	button: {
 		borderRadius: 20,
 		padding: 10,
 		elevation: 2,
 	},
-	buttonOpen: {
-		backgroundColor: '#F194FF',
-	},
 	buttonClose: {
-		backgroundColor: '#2196F3',
+		backgroundColor: COLORS.secondaryColor,
+	},
+	buttonNew: {
+		backgroundColor: COLORS.primaryColor,
+	},
+	textModal: {
+		textAlign: 'center',
+		fontSize: 15,
+		color: COLORS.primaryColor, 
+		},
+	modalInput: {
+		borderBottomColor: COLORS.secondaryColor,
+		borderBottomWidth: 1,
+		padding: 5,
+		fontStyle: 'italic',
+		color: COLORS.primaryColor,
 	},
 	textStyle: {
 		color: 'white',
@@ -130,6 +144,8 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 	},
 	pressableContainer: {
+		width: '90%',
 		flexDirection: 'row',
+		justifyContent: 'space-around',
 	},
 });
