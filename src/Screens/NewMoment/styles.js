@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
 		paddingBottom: 25,
 	},
 	inputName: {
-		fontSize: 22,
+		fontSize: 20,
 		paddingVertical: 10,
 		marginHorizontal: 20,
 		borderBottomColor: COLORS.terciartyColor,
@@ -25,13 +25,15 @@ export const styles = StyleSheet.create({
 		color: COLORS.primaryColor,
 		marginBottom: 5,
 		textAlign: 'center',
+		fontFamily: "openRegular",
 	},
 	inputEntry: {
-		fontSize: 15,
+		fontSize: 16,
 		marginTop: 5,
 		marginHorizontal: 20,
 		color: COLORS.primaryColor,
 		textAlignVertical: 'top',
+		fontFamily: "openRegular",
 	},
 	imageButton: {
 		height: '60%',
@@ -46,16 +48,6 @@ export const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 	},
-	buttonBack: {
-		paddingVertical: 10,
-		paddingHorizontal: 30,
-		borderRadius: 50,
-		backgroundColor: 'red',
-	},
-	textButtonBack: {
-		color: 'white',
-		fontWeight: 'bold',
-	},
 	buttonSave: {
 		paddingVertical: 10,
 		paddingHorizontal: 30,
@@ -64,7 +56,7 @@ export const styles = StyleSheet.create({
 	},
 	textButtonSave: {
 		color: 'white',
-		fontWeight: 'bold',
+		fontFamily: "openBold",
 	},
 	topBarTouchable: {
 		marginTop: 60,
@@ -135,17 +127,19 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 		fontSize: 15,
 		color: COLORS.primaryColor,
+		fontFamily: "openRegular",
 	},
 	modalInput: {
 		borderBottomColor: COLORS.secondaryColor,
 		borderBottomWidth: 1,
 		padding: 5,
-		fontStyle: 'italic',
+		fontFamily: "openItalic",
+		fontSize: 13,
 		color: COLORS.secondaryColor,
 	},
 	textStyle: {
 		color: 'white',
-		fontWeight: 'bold',
+		fontFamily: "openBold",
 		textAlign: 'center',
 	},
 	modalText: {

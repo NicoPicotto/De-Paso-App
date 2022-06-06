@@ -25,8 +25,8 @@ export const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 	},
 	name: {
-		fontSize: 22,
-		fontWeight: 'bold',
+		fontSize: 20,
+		fontFamily: 'openBold',
 		color: COLORS.primaryColor,
 	},
 	dateContainer: {
@@ -44,6 +44,7 @@ export const styles = StyleSheet.create({
 		fontSize: 14,
 		color: COLORS.primaryColor,
 		marginLeft: 5,
+		fontFamily: 'openRegular',
 	},
 	entryContainer: {
 		margin: 10,
@@ -52,6 +53,7 @@ export const styles = StyleSheet.create({
 		fontSize: 16,
 		color: COLORS.primaryColor,
 		textAlign: 'center',
+		fontFamily: 'openRegular',
 	},
 
 	imageButton: {

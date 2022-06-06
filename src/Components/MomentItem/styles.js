@@ -34,8 +34,8 @@ export const styles = StyleSheet.create({
 	},
 	name: {
 		color: 'white',
-		fontSize: 25,
-		fontWeight: 'bold',
+		fontSize: 22,
+		fontFamily: "openBold",
 		textShadowOffset: { width: 2, height: 2 },
 		textShadowRadius: 10,
 		lineHeight: 25,
@@ -44,11 +44,12 @@ export const styles = StyleSheet.create({
 	},
 	date: {
 		color: 'white',
-		fontSize: 16,
+		fontSize: 14,
 		lineHeight: 18,
 		marginBottom: 5,
 		textShadowOffset: { width: 1, height: 1 },
 		textShadowRadius: 10,
 		textShadowColor: '#2B2B2B',
+		fontFamily: "openRegular",
 	},
 });

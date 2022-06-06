@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
 	},
 	title: {
 		fontSize: 22,
-		fontWeight: 'bold',
+		fontFamily: "openBold",
 		color: COLORS.primaryColor,
 	},
 	buttonContainer: {
@@ -23,5 +23,6 @@ export const styles = StyleSheet.create({
 	textButton: {
 		fontSize: 15,
 		color: 'white',
+		fontFamily: "openRegular"
 	},
 });

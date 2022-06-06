@@ -94,8 +94,12 @@ const NewMoment = ({ navigation }) => {
 	};
 
 	const handleNewLocation = () => {
-		setAddress(inputLocation);
-		setModalVisible(false);
+		if (inputLocation !== '') {
+			setAddress(inputLocation);
+			setModalVisible(false);
+		} else {
+			Alert.alert('No ingresaste una nueva ubicación.');
+		}
 	};
 
 	const d = new Date();

@@ -48,7 +48,7 @@ const MomentList = ({ navigation }) => {
 				onPressProp={goToNewScreen}
 			/>
 			<FlatList
-				data={moments}
+				data={moments.reverse()}
 				keyExtractor={(item) => item.id}
 				renderItem={renderItem}
 				horizontal={true}
