@@ -227,6 +227,7 @@ const NewMoment = ({ navigation }) => {
 						style={styles.inputName}
 						onChangeText={handleNameChange}
 						value={name}
+						selectionColor={COLORS.primaryColor}
 					/>
 					<ScrollView>
 						<TextInput
@@ -237,6 +238,7 @@ const NewMoment = ({ navigation }) => {
 							value={entry}
 							onChangeText={handleEntryChange}
 							showSoftInputOnFocus={true}
+							selectionColor={COLORS.primaryColor}
 						/>
 					</ScrollView>
 					<View style={styles.buttonContainer}>
@@ -290,6 +292,7 @@ const NewMoment = ({ navigation }) => {
 								value={inputLocation ? inputLocation : null}
 								style={styles.modalInput}
 								placeholderTextColor={COLORS.secondaryColor}
+								selectionColor={COLORS.primaryColor}
 							/>
 							{inputLocation ? (
 								<Text style={styles.textModal}>

@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
 		width: '70%',
 		fontFamily: 'openRegular',
 		fontSize: 15,
-		elevation: 10,
+		elevation: 3,
 		height: 40,
 		color: COLORS.secondaryColor,
 	},
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
 		borderRadius: 20,
 		alignItems: 'center',
 		width: '25%',
-		elevation: 5,
+		elevation: 3,
 		height: 40,
 	},
 	textButton: {

@@ -96,7 +96,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	modalView: {
-		height: '35%',
+		height: 250,
 		margin: 20,
 		backgroundColor: 'white',
 		borderRadius: 20,

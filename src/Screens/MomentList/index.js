@@ -10,17 +10,22 @@ import { styles } from './styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { momentActions } from '../../store/action';
 import MomentItem from '../../Components/MomentItem';
+import { useIsFocused } from '@react-navigation/native';
 import { COLORS } from '../../Constants';
 
 const MomentList = ({ navigation }) => {
+	const isFocused = useIsFocused();
+
 	const [filteredData, setFilteredData] = useState();
 	const [search, setSearch] = useState('');
 
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(momentActions.loadMoment());
-	}, []);
+		if (isFocused) {
+			dispatch(momentActions.loadMoment());
+		}
+	}, [isFocused]);
 
 	const goToNewScreen = () => {
 		navigation.navigate('NewMoment');
