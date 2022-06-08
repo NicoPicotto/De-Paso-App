@@ -4,7 +4,7 @@ import { COLORS } from '../../Constants';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: COLORS.terciartyColor,
+		backgroundColor: COLORS.terciaryColor,
 	},
 	inputContainer: {
 		padding: 10,
@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
 	imageButton: {
 		height: '60%',
 		overflow: 'hidden',
-		backgroundColor: COLORS.terciartyColor,
+		backgroundColor: COLORS.terciaryColor,
 	},
 	image: {
 		width: '100%',
@@ -83,8 +83,10 @@ export const styles = StyleSheet.create({
 		left: 0,
 	},
 	buttonIconsContainer: {
-		backgroundColor: COLORS.terciartyColor,
+		backgroundColor: COLORS.terciaryColor,
 		borderRadius: 100,
+		width: 40,
+		height: 40,
 		padding: 8,
 		alignItems: 'center',
 		justifyContent: 'center',

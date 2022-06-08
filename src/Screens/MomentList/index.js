@@ -15,24 +15,26 @@ import { COLORS } from '../../Constants';
 
 const MomentList = ({ navigation }) => {
 	const isFocused = useIsFocused();
-
 	const [filteredData, setFilteredData] = useState();
 	const [search, setSearch] = useState('');
 
 	const dispatch = useDispatch();
 
+	const moments = useSelector((state) => state.moments.moments);
+
+	//Función que trae todas las entradas y se ejecuta onMount y onFocus
 	useEffect(() => {
 		if (isFocused) {
 			dispatch(momentActions.loadMoment());
 		}
 	}, [isFocused]);
 
+	//Función que navega a la pantalla para crear una nueva entrada
 	const goToNewScreen = () => {
 		navigation.navigate('NewMoment');
 	};
 
-	const moments = useSelector((state) => state.moments.moments);
-
+	//Función que entra al detalle y envía la info de ese item en particular
 	const onSelectDetail = (item) => {
 		navigation.navigate('MomentDetail', {
 			name: item.name,
@@ -43,8 +45,7 @@ const MomentList = ({ navigation }) => {
 		});
 	};
 
-	console.log('MasterData', moments);
-
+	//Función que renderiza la FlatList
 	const renderItem = ({ item }) => (
 		<MomentItem
 			name={item.name}
@@ -56,11 +57,11 @@ const MomentList = ({ navigation }) => {
 		/>
 	);
 
+	//Función para buscar por nombre
 	const searchFilter = (text) => {
 		if (text) {
 			const newData = moments.filter((item) => {
 				const itemData = item.name ? item.name.toUpperCase() : ''.toUpperCase();
-
 				const textData = text.toUpperCase();
 				return itemData.indexOf(textData) > -1;
 			});

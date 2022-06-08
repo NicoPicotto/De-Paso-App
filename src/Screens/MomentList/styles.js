@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		paddingVertical: 60,
 		paddingBottom: 20,
-		backgroundColor: COLORS.terciartyColor,
+		backgroundColor: COLORS.terciaryColor,
 	},
 	flatList: {
 		marginHorizontal: 10,

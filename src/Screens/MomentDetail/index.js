@@ -44,7 +44,7 @@ const MomentDetail = ({ route, navigation }) => {
 		);
 	};
 
-	//Función para compartir
+	//Función para compartir la entrada en RRSS y más
 	const onShare = async () => {
 		try {
 			const result = await Share.share({
@@ -83,27 +83,27 @@ const MomentDetail = ({ route, navigation }) => {
 					<View>
 						<TouchableOpacity
 							onPress={goToList}
-							style={styles.buttonBackContainer}
+							style={styles.buttonIconsContainer}
 						>
 							<Feather
 								name='arrow-left'
 								size={22}
-								color={COLORS.terciartyColor}
+								color={COLORS.primaryColor}
 							/>
 						</TouchableOpacity>
 					</View>
 					<View style={{ flexDirection: 'row', alignItems: 'center' }}>
 						<TouchableOpacity
-							style={styles.buttonDeleteContainer}
+							style={styles.buttonIconsContainer}
 							onPress={() => handleDeleteMoment(name)}
 						>
-							<FontAwesome name='trash' size={22} color='white' />
+							<FontAwesome name='trash' size={22} color={COLORS.primaryColor} />
 						</TouchableOpacity>
-						<TouchableOpacity style={styles.buttonSave} onPress={onShare}>
+						<TouchableOpacity style={styles.buttonIconsContainer} onPress={onShare}>
 							<Ionicons
 								name='share-social'
 								size={22}
-								color={COLORS.terciartyColor}
+								color={COLORS.primaryColor}
 							/>
 						</TouchableOpacity>
 					</View>

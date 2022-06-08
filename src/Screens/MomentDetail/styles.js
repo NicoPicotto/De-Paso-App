@@ -4,7 +4,7 @@ import { COLORS } from '../../Constants';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: COLORS.terciartyColor,
+		backgroundColor: COLORS.terciaryColor,
 	},
 	textContainer: {
 		paddingHorizontal: 10,
@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
 		elevation: 5,
 	},
 	nameContainer: {
-		paddingVertical: 5,
+		paddingVertical: 10,
 		marginHorizontal: 15,
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 	},
 	name: {
-		fontSize: 20,
+		fontSize: 22,
 		fontFamily: 'openBold',
 		color: COLORS.primaryColor,
 	},
@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
 	},
 	date: {
 		fontSize: 14,
-		color: COLORS.primaryColor,
+		color: COLORS.secondaryColor,
 		marginLeft: 5,
 		fontFamily: 'openRegular',
 	},
@@ -51,7 +51,7 @@ export const styles = StyleSheet.create({
 	},
 	entry: {
 		fontSize: 16,
-		color: COLORS.primaryColor,
+		color: COLORS.secondaryColor,
 		textAlign: 'center',
 		fontFamily: 'openRegular',
 	},
@@ -60,7 +60,7 @@ export const styles = StyleSheet.create({
 		height: '60%',
 		paddingTop: 30,
 		overflow: 'hidden',
-		backgroundColor: COLORS.terciartyColor,
+		backgroundColor: COLORS.terciaryColor,
 	},
 	image: {
 		width: '100%',
@@ -79,15 +79,6 @@ export const styles = StyleSheet.create({
 	textButtonBack: {
 		color: 'white',
 		fontWeight: 'bold',
-	},
-	buttonSave: {
-		backgroundColor: COLORS.secondaryColor,
-		borderRadius: 100,
-		paddingHorizontal: 10,
-		paddingVertical: 10,
-		alignItems: 'center',
-		justifyContent: 'center',
-		marginHorizontal: 10,
 	},
 	topBarTouchable: {
 		height: '10%',
@@ -113,19 +104,12 @@ export const styles = StyleSheet.create({
 		right: 0,
 		left: 0,
 	},
-	buttonBackContainer: {
-		backgroundColor: COLORS.secondaryColor,
+	buttonIconsContainer: {
+		backgroundColor: COLORS.terciaryColor,
 		borderRadius: 100,
+		width: 40,
+		height: 40,
 		padding: 8,
-		alignItems: 'center',
-		justifyContent: 'center',
-		marginHorizontal: 10,
-	},
-	buttonDeleteContainer: {
-		backgroundColor: 'darkred',
-		borderRadius: 100,
-		paddingHorizontal: 12,
-		paddingVertical: 10,
 		alignItems: 'center',
 		justifyContent: 'center',
 		marginHorizontal: 10,
