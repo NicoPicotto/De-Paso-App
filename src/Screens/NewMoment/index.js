@@ -268,7 +268,7 @@ const NewMoment = ({ navigation }) => {
 										size={15}
 										color={COLORS.primaryColor}
 									/>
-									Ubicación obtenida: {city}, {region}, {country}
+									Ubicación sugerida: {city}, {region}, {country}
 								</Text>
 							) : (
 								<Text style={styles.textModal}>
@@ -309,7 +309,7 @@ const NewMoment = ({ navigation }) => {
 									style={[styles.button, styles.buttonClose]}
 									onPress={closeModal}
 								>
-									<Text style={styles.textStyle}>Conservar actual</Text>
+									<Text style={styles.textStyle}>Guardar actual</Text>
 								</Pressable>
 								<Pressable
 									style={[styles.button, styles.buttonNew]}

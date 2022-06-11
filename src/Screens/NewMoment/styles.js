@@ -94,7 +94,7 @@ export const styles = StyleSheet.create({
 	},
 	centeredView: {
 		flex: 1,
-		justifyContent: 'center',
+		marginTop: 150,
 		alignItems: 'center',
 	},
 	modalView: {
@@ -144,6 +144,7 @@ export const styles = StyleSheet.create({
 		color: 'white',
 		fontFamily: 'openBold',
 		textAlign: 'center',
+		fontSize: 12,
 	},
 	modalText: {
 		marginBottom: 15,

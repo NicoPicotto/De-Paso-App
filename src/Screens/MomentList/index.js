@@ -98,6 +98,8 @@ const MomentList = ({ navigation }) => {
 				horizontal={true}
 				style={styles.flatList}
 			/>
+			<View style={styles.footerContainer}/>
+			<View style={styles.footerContainerBottom}/>
 		</View>
 	);
 };

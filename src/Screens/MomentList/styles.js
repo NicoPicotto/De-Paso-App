@@ -4,13 +4,16 @@ import { COLORS } from '../../Constants';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		paddingVertical: 60,
-		paddingBottom: 20,
 		backgroundColor: COLORS.terciaryColor,
 	},
 	flatList: {
-		marginHorizontal: 10,
+		paddingRight: 20,
 		elevation: 5,
+		borderBottomLeftRadius : 40,
+		borderBottomRightRadius : 40,
+		backgroundColor: COLORS.terciaryColor,
+		height: "80%",
+		paddingBottom: 20,
 	},
 	inputSearch: {
 		backgroundColor: 'white',
@@ -27,7 +30,7 @@ export const styles = StyleSheet.create({
 	buttonContainer: {
 		paddingVertical: 10,
 		paddingHorizontal: 10,
-		backgroundColor: COLORS.primaryColor,
+		backgroundColor: COLORS.terciaryColor,
 		borderRadius: 20,
 		alignItems: 'center',
 		width: '25%',
@@ -36,14 +39,26 @@ export const styles = StyleSheet.create({
 	},
 	textButton: {
 		fontSize: 15,
-		color: 'white',
+		color: COLORS.primaryColor,
 		fontFamily: 'openRegular',
 	},
 	searchBarContainer: {
 		flexDirection: 'row',
-		alignItems: 'center',
+		alignItems: 'flex-end',
 		justifyContent: 'space-between',
 		paddingHorizontal: 20,
-		marginTop: 20,
+		backgroundColor: COLORS.primaryColor,
+		height: '15%',
+		borderBottomLeftRadius: 50,
+		borderBottomRightRadius: 50,
+		paddingBottom: 20,
+		elevation: 3,
+	},
+	footerContainer: {
+		height: '10%',
+		backgroundColor: COLORS.primaryColor,
+		elevation: 3,
+		marginTop: "-15%",
+		zIndex: -1,
 	},
 });

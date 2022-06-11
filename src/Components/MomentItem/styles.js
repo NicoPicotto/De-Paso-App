@@ -4,9 +4,8 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		overflow: 'hidden',
-		marginHorizontal: 10,
-		marginTop: 30,
-		height: '90%',
+		marginHorizontal: 15,
+		marginVertical: 30,
 		borderRadius: 20,
 		alignItems: 'center',
 		shadowColor: '#000',
@@ -16,9 +15,8 @@ export const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.22,
 		shadowRadius: 2.22,
-
 		elevation: 3,
-		width: 350,
+		width: Dimensions.get('window').width / 100 * 85,
 	},
 	image: {
 		flex: 1,
