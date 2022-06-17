@@ -6,9 +6,7 @@ _Proyecto final para el curso de Desarrollo de Aplicaciones de la plataforma Cod
 
 _Esta app estilo "Travel Blog", tiene como objetivo que el usuario pueda guardar momentos únicos, a través de entradas que incluyen: foto, texto, geolocalización y automáticamente genera fecha y hora. Una vez generado el "momento", el usuario puede visualizarlo por orden cronológico, eliminarlo o compartirlo con quien desee._ ⚛️ 
 
-![iphone 1](https://user-images.githubusercontent.com/86528557/174199629-490aa6f7-8800-459b-8597-580090b60403.jpg)
-![iphone 2](https://user-images.githubusercontent.com/86528557/174199633-588f1ac7-2616-4ea5-a424-cf75f637919d.jpg)
-![iphone 3](https://user-images.githubusercontent.com/86528557/174199639-59c94f91-4cb4-414a-a7d7-c3d0f0041f05.jpg)
+![De-Paso](https://user-images.githubusercontent.com/86528557/174200436-a8d8addd-02e6-42e8-ac52-9461d734ada0.jpg)
 
 
 [Link a la app en Apple Store](https://apps.apple.com/app/id1629212811)
